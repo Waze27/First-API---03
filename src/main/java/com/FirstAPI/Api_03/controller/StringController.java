@@ -9,10 +9,8 @@ import javax.validation.constraints.NotBlank;
 @RequestMapping("/strings")
 public class StringController {
 
-    @GetMapping(value = "")
-    public String concat(@NotBlank(message = "mandatory") String prime, String second){
-        prime = "Mirko ";
-        second = "Di Cristina";
+    @GetMapping(value = "/{prime}/{second}")
+    public String concat(@NotBlank(message = "mandatory") @PathVariable String prime, @PathVariable String second){
         return prime.concat(second);
     }
 }
